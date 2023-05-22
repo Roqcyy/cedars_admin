@@ -51,7 +51,7 @@ import {
 function OrderTable() {
 
   //meta title
-  document.title = "Orders | Skote - React Admin & Dashboard Template";
+  document.title = "Orders | cedars_admin";
 
   const [modal, setModal] = useState(false);
   const [modal1, setModal1] = useState(false);

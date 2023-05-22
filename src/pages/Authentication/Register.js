@@ -20,7 +20,7 @@ import logoImg from "../../assets/images/logo.svg";
 const Register = props => {
 
   //meta title
-  document.title = "Register | Skote - React Admin & Dashboard Template";
+  document.title = "Register | cedars_admin";
 
   const dispatch = useDispatch();
 

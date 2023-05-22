@@ -30,7 +30,7 @@ import { facebook, google } from "../../config";
 const Login = props => {
 
   //meta title
-  document.title = "Login | Skote - React Admin & Dashboard Template";
+  document.title = "Login | cedars_admin";
 
   const dispatch = useDispatch();
 

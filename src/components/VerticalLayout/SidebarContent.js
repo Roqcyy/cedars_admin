@@ -163,7 +163,7 @@ const SidebarContent = props => {
          
           </li>
 
-          <li>
+          {/* <li>
             <Link to="/#">
               <span className="badge rounded-pill bg-success float-end" key="t-new">New</span>
               <i className="bx bx-briefcase-alt"></i>
@@ -183,7 +183,7 @@ const SidebarContent = props => {
                 </ul>
               </li>
             </ul>
-          </li>
+          </li> */}
 
         </ul>
       </div>
