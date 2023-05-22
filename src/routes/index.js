@@ -9,13 +9,14 @@ import Login from "../pages/Authentication/Login"
 import Logout from "../pages/Authentication/Logout"
 import Register from "../pages/Authentication/Register"
 import ForgetPwd from "../pages/Authentication/ForgetPassword"
-
+import OrderTable from "pages/Tables/OrderTable"
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard/> },
-
+  // table 
+  { path: "/orderTable", component: <OrderTable/> },
   // //profile
   { path: "/profile", component: <UserProfile/> },
 

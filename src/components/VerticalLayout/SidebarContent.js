@@ -154,8 +154,13 @@ const SidebarContent = props => {
             <ul className="sub-menu">
               <li>
                 <Link to="/dashboard">{props.t("Default")}</Link>
+               
+              </li>
+              <li>
+                <Link to="/orderTable">Table</Link>
               </li>
             </ul>
+         
           </li>
 
           <li>
