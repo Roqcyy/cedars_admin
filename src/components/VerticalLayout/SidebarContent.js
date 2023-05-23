@@ -149,42 +149,95 @@ const SidebarContent = props => {
           <li>
             <Link to="/#" className="has-arrow">
               <i className="bx bx-home-circle"></i>
-              <span>{props.t("Dashboards")}</span>
+              <span>Home</span>
             </Link>
             <ul className="sub-menu">
-              <li>
-                <Link to="/dashboard">{props.t("Default")}</Link>
-               
-              </li>
               <li>
                 <Link to="/orderTable">Table</Link>
               </li>
             </ul>
-         
           </li>
-
-          {/* <li>
+          <li>
             <Link to="/#">
               <span className="badge rounded-pill bg-success float-end" key="t-new">New</span>
-              <i className="bx bx-briefcase-alt"></i>
-              <span key="t-jobs">{props.t("Jobs")}</span>
+              <i className="bx bxs-user-detail"></i>
+              <span key="t-jobs">User Management</span>
             </Link>
             <ul className="sub-menu">
-              <li><Link to="#">{props.t("Job List")}</Link></li>
-              <li><Link to="#">{props.t("Job Grid")}</Link></li>
-              <li><Link to="#">{props.t("Apply Job")}</Link></li>
-              <li><Link to="#">{props.t("Job Details")}</Link></li>
-              <li><Link to="#">{props.t("Jobs Categories")}</Link></li>
-              <li>
-                <Link to="/#" className="has-arrow">{props.t("Candidate")}</Link>
-                <ul className="sub-menu" aria-expanded="true">
-                  <li><Link to="#">{props.t("List")}</Link></li>
-                  <li><Link to="#">{props.t("Overview")}</Link></li>
-                </ul>
-              </li>
+              <li><Link to="#">User Search</Link></li>
+              <li><Link to="#">Seller Registration</Link></li>
+              <li><Link to="#">Q&A </Link></li>
+              <li><Link to="#">Review</Link></li>
             </ul>
-          </li> */}
-
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bx-menu"></i>
+              <span>Menu Management</span>
+            </Link>
+            <ul className="sub-menu">
+              <li><Link to="#">Menu Settings 1</Link></li>
+              <li><Link to="#">Menu Settings 2</Link></li>
+              <li><Link to="#">Menu Settings 3</Link></li>
+              <li><Link to="#">Menu Settings 4</Link></li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bxs-detail"></i>
+              <span>Banner Management</span>
+            </Link>
+            <ul className="sub-menu">
+              <li><Link to="#">Main Top Banner</Link></li>
+              
+              <li><Link to="#">Middle Banner</Link></li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bx-receipt"></i>
+              <span>Category Management</span>
+            </Link>
+            <ul className="sub-menu">
+            <li><Link to="#">Category</Link></li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bxl-product-hunt"></i>
+              <span>Product Management</span>
+            </Link>
+            <ul className="sub-menu">
+              <li><Link to="#">Product</Link></li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bxs-bank"></i>
+              <span>Transaction Management</span>
+            </Link>
+            <ul className="sub-menu">
+              <li><Link to="#">Payment completed</Link></li>
+              
+              <li><Link to="#">Order cancellation</Link></li>
+              
+              <li><Link to="#">Shipping in progress</Link></li>
+              
+              <li><Link to="#">Delivery completed</Link></li>
+              
+              <li><Link to="#">Purchase confirmation</Link></li>
+              
+              <li><Link to="#">Refund request</Link></li>
+              
+              <li><Link to="#">Refund completed</Link></li>
+              
+              <li><Link to="#">Exchange request</Link></li>
+              
+              <li><Link to="#">Exchange in progress</Link></li>
+              
+              <li><Link to="#">Exchange completed</Link></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </SimpleBar>
