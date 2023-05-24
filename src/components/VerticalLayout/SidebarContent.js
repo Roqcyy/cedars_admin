@@ -158,16 +158,15 @@ const SidebarContent = props => {
             </ul>
           </li>
           <li>
-            <Link to="/#">
-              <span className="badge rounded-pill bg-success float-end" key="t-new">New</span>
+            <Link to="/#" className="has-arrow">
               <i className="bx bxs-user-detail"></i>
               <span key="t-jobs">User Management</span>
             </Link>
             <ul className="sub-menu">
-              <li><Link to="#">User Search</Link></li>
-              <li><Link to="#">Seller Registration</Link></li>
-              <li><Link to="#">Q&A </Link></li>
-              <li><Link to="#">Review</Link></li>
+              <li><Link to="/user-management/search">User Search</Link></li>
+              <li><Link to="/user-management/seller-reg">Seller Registration</Link></li>
+              <li><Link to="/user-management/qna">QNA </Link></li>
+              <li><Link to="/user-management/review">Review</Link></li>
             </ul>
           </li>
           <li>
@@ -176,7 +175,7 @@ const SidebarContent = props => {
               <span>Menu Management</span>
             </Link>
             <ul className="sub-menu">
-              <li><Link to="#">Menu Settings 1</Link></li>
+              <li><Link to="/menu-management">Menu Settings 1</Link></li>
               <li><Link to="#">Menu Settings 2</Link></li>
               <li><Link to="#">Menu Settings 3</Link></li>
               <li><Link to="#">Menu Settings 4</Link></li>

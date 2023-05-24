@@ -74,6 +74,7 @@ const TableContainer = ({
   customPageSize,
   className,
   customPageSizeOptions,
+  headerType
 
 }) => {
   const {
@@ -130,74 +131,80 @@ const TableContainer = ({
   };
   return (
     <Fragment>
+     {headerType && headerType === "userSearch" ? 
+     
+   <></>
+     : 
+    
       <Row className="mb-2">
-        <Col md={customPageSizeOptions ? 2 : 1}>
-          <select
-            className="form-select"
-            value={pageSize}
-            onChange={onChangeInSelect}
-          >
-            {[10, 20, 30, 40, 50].map(pageSize => (
-              <option key={pageSize} value={pageSize}>
-                Show {pageSize}
-              </option>
-            ))}
-          </select>
+      <Col md={customPageSizeOptions ? 2 : 1}>
+        <select
+          className="form-select"
+          value={pageSize}
+          onChange={onChangeInSelect}
+        >
+          {[10, 20, 30, 40, 50].map(pageSize => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
+      </Col>
+      {isGlobalFilter && (
+        <GlobalFilter
+          preGlobalFilteredRows={preGlobalFilteredRows}
+          globalFilter={state.globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          isJobListGlobalFilter={isJobListGlobalFilter}
+        />
+      )}
+      {isAddOptions &&  (
+        <Col sm="7">
+          <div className="text-sm-end">
+            <Button
+              type="button"
+              color="success"
+              className="btn-rounded  mb-2 me-2"
+              onClick={handleOrderClicks}
+            >
+              <i className="mdi mdi-plus me-1" />
+              Add New Order
+            </Button>
+          </div>
         </Col>
-        {isGlobalFilter && (
-          <GlobalFilter
-            preGlobalFilteredRows={preGlobalFilteredRows}
-            globalFilter={state.globalFilter}
-            setGlobalFilter={setGlobalFilter}
-            isJobListGlobalFilter={isJobListGlobalFilter}
-          />
-        )}
-        {isAddOptions && (
-          <Col sm="7">
-            <div className="text-sm-end">
-              <Button
-                type="button"
-                color="success"
-                className="btn-rounded  mb-2 me-2"
-                onClick={handleOrderClicks}
-              >
-                <i className="mdi mdi-plus me-1" />
-                Add New Order
-              </Button>
-            </div>
-          </Col>
-        )}
-        {isAddUserList && (
-          <Col sm="7">
-            <div className="text-sm-end">
-              <Button
-                type="button"
-                color="primary"
-                className="btn mb-2 me-2"
-                onClick={handleUserClick}
-              >
-                <i className="mdi mdi-plus-circle-outline me-1" />
-                Create New User
-              </Button>
-            </div>
-          </Col>
-        )}
-        {isAddCustList && (
-          <Col sm="7">
-            <div className="text-sm-end">
-              <Button
-                type="button"
-                color="success"
-                className="btn-rounded mb-2 me-2"
-                onClick={handleCustomerClick}
-              >
-                <i className="mdi mdi-plus me-1" />
-                New Customers
-              </Button>
-            </div>
-          </Col>
-        )}
-      </Row>
+      )}
+      {isAddUserList && (
+        <Col sm="7">
+          <div className="text-sm-end">
+            <Button
+              type="button"
+              color="primary"
+              className="btn mb-2 me-2"
+              onClick={handleUserClick}
+            >
+              <i className="mdi mdi-plus-circle-outline me-1" />
+              Create New User
+            </Button>
+          </div>
+        </Col>
+      )}
+      {isAddCustList && (
+        <Col sm="7">
+          <div className="text-sm-end">
+            <Button
+              type="button"
+              color="success"
+              className="btn-rounded mb-2 me-2"
+              onClick={handleCustomerClick}
+            >
+              <i className="mdi mdi-plus me-1" />
+              New Customers
+            </Button>
+          </div>
+        </Col>
+      )}
+    </Row>
+     }
 
       <div className="table-responsive react-table">
         <Table bordered hover {...getTableProps()} className={className}>
@@ -238,7 +245,7 @@ const TableContainer = ({
         </Table>
       </div>
 
-      <Row className="justify-content-md-end justify-content-center align-items-center">
+      <Row className="justify-content-md-center justify-content-center align-items-center">
         <Col className="col-md-auto">
           <div className="d-flex gap-1">
             <Button

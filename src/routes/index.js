@@ -10,6 +10,18 @@ import Logout from "../pages/Authentication/Logout"
 import Register from "../pages/Authentication/Register"
 import ForgetPwd from "../pages/Authentication/ForgetPassword"
 import OrderTable from "pages/Tables/OrderTable"
+
+// User Management
+import UserSearch from "pages/UserManagement/UserSearch"
+import SellerRegistration from "pages/UserManagement/SellerRegistration"
+import Qna from "pages/UserManagement/Qna"
+import QnaDetail from "pages/UserManagement/Qna/Detail"
+import Review from "pages/UserManagement/Review"
+import ReviewDetail from "pages/UserManagement/Review/Detail"
+
+// Menu Management
+import MenuManagement from "pages/MenuManagement"
+
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 
@@ -17,6 +29,18 @@ const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard/> },
   // table 
   { path: "/orderTable", component: <OrderTable/> },
+
+  //User Management
+  { path: "/user-management/search", component: <UserSearch/> },
+  { path: "/user-management/seller-reg", component: <SellerRegistration/> },
+  { path: "/user-management/qna", component: <Qna/> },
+  { path: "/user-management/qna/detail", component: <QnaDetail/> },
+  { path: "/user-management/review", component: <Review/> },
+  { path: "/user-management/review/detail", component: <ReviewDetail/> },
+  //Menu Management
+  
+  { path: "/menu-management", component: <MenuManagement/> },
+
   // //profile
   { path: "/profile", component: <UserProfile/> },
 
