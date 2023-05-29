@@ -19,11 +19,11 @@ import SectionCard from "./Components/SectionCard"
 const MenuManagement = props => {
   const [showSection, setShowSection] = useState(false)
   const [productModal, setProductModal] = useState(false)
-  const [isAdded, setIsAdded] = useState(false);
-  
+  const [isAdded, setIsAdded] = useState(false)
+
   const handleAdd = () => {
-    setProductModal(false);
-    setIsAdded(true);
+    setProductModal(false)
+    setIsAdded(true)
   }
 
   //meta title
@@ -136,7 +136,9 @@ const MenuManagement = props => {
                       <td className="align-middle">Mark</td>
                       <td className="align-middle">Otto</td>
                       <td>
-                        <Button className="w-100 btn-dark" onClick={handleAdd}>Add</Button>
+                        <Button className="w-100 btn-dark" onClick={handleAdd}>
+                          Add
+                        </Button>
                       </td>
                     </tr>
                     <tr>
@@ -174,19 +176,36 @@ const MenuManagement = props => {
                 <nav aria-label="Page navigation example" className="my-3">
                   <ul className="pagination justify-content-center">
                     <li className="page-item disabled">
-                      <a className="page-link" href="#">{"<"}</a>
+                      <a className="page-link" href="#">
+                        {"<"}
+                      </a>
                     </li>
-                    <li className="page-item"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item"><a className="page-link" href="#">2</a></li>
-                    <li className="page-item"><a className="page-link" href="#">3</a></li>
                     <li className="page-item">
-                      <a className="page-link" href="#">{">"}</a>
+                      <a className="page-link" href="#">
+                        1
+                      </a>
+                    </li>
+                    <li className="page-item">
+                      <a className="page-link" href="#">
+                        2
+                      </a>
+                    </li>
+                    <li className="page-item">
+                      <a className="page-link" href="#">
+                        3
+                      </a>
+                    </li>
+                    <li className="page-item">
+                      <a className="page-link" href="#">
+                        {">"}
+                      </a>
                     </li>
                   </ul>
                 </nav>
               </div>
             </ModalBody>
           </Modal>
+          
         </Container>
       </div>
     </React.Fragment>
