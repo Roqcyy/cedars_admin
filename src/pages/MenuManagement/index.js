@@ -56,9 +56,9 @@ const MenuManagement = props => {
           
           <Modal size="lg" centered isOpen={productModal}>
             <ModalHeader>
-              <h5 className="modal-title mt-0" id="myLargeModalLabel">
+              <span className="modal-title mt-0" id="myLargeModalLabel">
                 Search a Product
-              </h5>
+              </span>
               <Button
                 onClick={() => {
                   setProductModal(false)
