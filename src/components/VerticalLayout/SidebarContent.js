@@ -155,6 +155,9 @@ const SidebarContent = props => {
               <li>
                 <Link to="/orderTable">Table</Link>
               </li>
+              <li>
+                <Link to="/home">Home</Link>
+              </li>
             </ul>
           </li>
           <li>

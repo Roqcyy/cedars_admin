@@ -44,7 +44,6 @@ const PaymentStatus = (cell) => {
     );
 };
 const PaymentMethod = (cell) => {
-    console.log('cell---->', cell)
     return (
         <span>
             <i
