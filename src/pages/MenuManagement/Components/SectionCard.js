@@ -3,13 +3,13 @@ import { Card, CardBody, Row, Col, Table, Button } from "reactstrap"
 //Import Breadcrumbs
 
 //i18n
-const SectionCard = props => {
+const SectionCard = ({value, type, sectionModal, setProductModal, isAdded }) => {
   //meta title
   document.title = "Menu Management"
 
   return (
     <Row>
-      <Col md={8}>
+      <Col md={10}>
         <Card>
           <CardBody>
             <div className="card-title h4 mb-3">Section 1 Name</div>
@@ -17,8 +17,8 @@ const SectionCard = props => {
               <Col md={12}>
                 <input
                   className="form-control "
-                  type={props.type}
-                  value={props.value}
+                  type={type}
+                  value={value}
                   placeholder="Enter section 1 name"
                 />
               </Col>
@@ -33,12 +33,24 @@ const SectionCard = props => {
             <div className="card-title h4 my-3">Product List</div>
 
             <Row>
+            <Button
+                onClick={() => {
+                  sectionModal(false)
+                }}
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </Button>
               <Col md={12}>
-                {!props.isAdded ? (
+             
+                {!isAdded ? (
                   <div
                     className="border border-2 d-flex align-items-center justify-content-center"
                     style={{ minHeight: "200px", cursor: "pointer" }}
-                    onClick={() => props.setProductModal(true)}
+                    onClick={() => setProductModal(true)}
                   >
                     Add the products to the list
                   </div>
@@ -101,7 +113,11 @@ const SectionCard = props => {
                         </tbody>
                       </Table>
                     </div>
-                    <Row className="my-sm-3">
+                    
+                  </>
+                )}
+              </Col>
+              <Row className="my-sm-3">
                       <Col sm={6}>
                         <Button className="btn-danger">Reset</Button>
                       </Col>
@@ -111,10 +127,7 @@ const SectionCard = props => {
                         </Button>
                         <Button className="btn-dark">Save</Button>
                       </Col>
-                    </Row>
-                  </>
-                )}
-              </Col>
+              </Row>
             </Row>
           </CardBody>
         </Card>

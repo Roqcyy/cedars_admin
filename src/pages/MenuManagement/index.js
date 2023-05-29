@@ -14,13 +14,14 @@ import {
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import SectionCard from "./Components/SectionCard"
+import AddSection from "./common/AddSection"
 
 //i18n
 const MenuManagement = props => {
   const [showSection, setShowSection] = useState(false)
   const [productModal, setProductModal] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
-
+  const [sectionValue, setSectionValue] = useState('')
   const handleAdd = () => {
     setProductModal(false)
     setIsAdded(true)
@@ -39,51 +40,20 @@ const MenuManagement = props => {
             breadcrumbItem={"Menu Settings 1"}
           />
           <Row>
-            <Col md={8}>
-              <Card>
-                <CardBody>
-                  <div className="card-title h4 mb-3">Menu name</div>
-                  <Row>
-                    <Col md={12}>
-                      <input
-                        className="form-control "
-                        type={props.type}
-                        value={props.value}
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col md={12}>
-                      <div className="plan-box mb-3">
-                        <div className="plan-btn"></div>
-                      </div>
-                    </Col>
-                  </Row>
-
-                  <Row className="mt-3">
-                    <Col md={12}>
-                      <Button
-                        className="btn btn-dark w-100"
-                        onClick={() => setShowSection(true)}
-                      >
-                        Add Section
-                      </Button>
-                    </Col>
-                  </Row>
-                </CardBody>
-              </Card>
-            </Col>
+                <AddSection sectionValue={sectionValue}  placeholder="Enter  menu1 name" onclick={setShowSection}  setSectionValue={setSectionValue}/>
           </Row>
-
+          
           {showSection ? (
             <SectionCard
               productModal={productModal}
               setProductModal={setProductModal}
               isAdded={isAdded}
+              sectionModal = {setShowSection}
             />
           ) : (
             ""
           )}
+          
           <Modal size="lg" centered isOpen={productModal}>
             <ModalHeader>
               <h5 className="modal-title mt-0" id="myLargeModalLabel">
@@ -105,7 +75,7 @@ const MenuManagement = props => {
               <Row className="mb-2">
                 <Col sm={12}>
                   <Row>
-                    <Col sm={8}>
+                    <Col sm={10}>
                       <input
                         className="form-control"
                         type="search"
