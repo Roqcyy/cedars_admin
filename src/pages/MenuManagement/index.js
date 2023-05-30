@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import {
   Container,
   Card,
@@ -15,6 +15,8 @@ import {
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import SectionCard from "./Components/SectionCard"
 import AddSection from "./common/AddSection"
+import { Date, OrderId } from "store/e-commerce/EcommerceOrderCol"
+import TableContainer from "components/Common/TableContainer"
 
 //i18n
 const MenuManagement = props => {
@@ -26,6 +28,122 @@ const MenuManagement = props => {
     setProductModal(false)
     setIsAdded(true)
   }
+
+  const data = [
+    {
+      date: 'YYYY.MM.DD',
+      name :'Jerk',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    },
+    {
+      date: 'YYYY.MM.DD',
+      name :'Mark',
+      companyName: 'Otto',
+      add : 'Add'
+    }
+  ]
+
+
+  const columns = useMemo(
+    () => [
+
+      {
+        Header: 'Registration Date',
+        accessor: 'date',
+        width: '150px',
+        style: {
+          textAlign: "center",
+          width: "10%",
+          background: "#0000",
+        },
+        filterable: true,
+        disableFilters: true,
+        Cell: (cellProps) => {
+          return <OrderId {...cellProps} />;
+        }
+      },
+      {
+        Header: 'Product Name',
+        accessor: 'name',
+        filterable: true,
+        disableFilters: true,
+        Cell: (cellProps) => {
+          return <OrderId {...cellProps} />;
+        }
+      },
+      {
+        Header: 'Company Name',
+        accessor: 'companyName',
+        filterable: true,
+        disableFilters: true,
+        Cell: (cellProps) => {
+          return <Date {...cellProps} />;
+        }
+      },
+     
+      
+      {
+        Header: 'Add',
+        accessor: 'add',
+        disableFilters: true,
+        Cell: () => {
+          return (
+            <Button
+              type="button"
+              color="primary"
+              className="btn-sm btn-rounded"
+              // onClick={toggleViewModal}
+            >
+              Add
+            </Button>);
+        }
+      },
+    ],
+    []
+  )
 
   //meta title
   document.title = "Menu Management"
@@ -72,106 +190,14 @@ const MenuManagement = props => {
               </Button>
             </ModalHeader>
             <ModalBody>
-              <Row className="mb-2">
-                <Col sm={12}>
-                  <Row>
-                    <Col sm={10}>
-                      <input
-                        className="form-control"
-                        type="search"
-                        placeholder="Enter product name or company name"
-                      />
-                    </Col>
-                    <Col className="my-sm-0 my-2">
-                      <Button className="btn btn-dark btn-outline w-100 h-100">
-                        Search
-                      </Button>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
               <div className="table-responsive">
-                <Table className="table mb-0 table-bordered border-2">
-                  <thead>
-                    <tr>
-                      <th>Registration Date</th>
-                      <th>Product Name</th>
-                      <th>Company Name</th>
-                      <th>Add</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">YYYY.MM.DD</th>
-                      <td className="align-middle">Mark</td>
-                      <td className="align-middle">Otto</td>
-                      <td>
-                        <Button className="w-100 btn-dark" onClick={handleAdd}>
-                          Add
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row" className="align-middle">
-                        YYYY.MM.DD
-                      </th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>
-                        <Button className="w-100 btn-dark">Add</Button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row" className="align-middle">
-                        YYYY.MM.DD
-                      </th>
-                      <td className="align-middle">Larry</td>
-                      <td className="align-middle">the Bird</td>
-                      <td>
-                        <Button className="w-100 btn-dark">Add</Button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row" className="align-middle">
-                        YYYY.MM.DD
-                      </th>
-                      <td className="align-middle">Larry</td>
-                      <td className="align-middle">the Bird</td>
-                      <td>
-                        <Button className="w-100 btn-dark">Add</Button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
-                <nav aria-label="Page navigation example" className="my-3">
-                  <ul className="pagination justify-content-center">
-                    <li className="page-item disabled">
-                      <a className="page-link" href="#">
-                        {"<"}
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        1
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        2
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        3
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        {">"}
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                 <TableContainer
+                    columns={columns}
+                    data={data}
+                    isGlobalFilter={true}
+                    customPageSize={10}
+                    placeholder="Enter product name or company name"
+                  />
               </div>
             </ModalBody>
           </Modal>

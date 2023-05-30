@@ -18,7 +18,8 @@ function GlobalFilter({
   preGlobalFilteredRows,
   globalFilter,
   setGlobalFilter,
-  isJobListGlobalFilter
+  isJobListGlobalFilter,
+  placeholder
 }) {
   const count = preGlobalFilteredRows.length;
   const [value, setValue] = React.useState(globalFilter);
@@ -28,30 +29,30 @@ function GlobalFilter({
 
   return (
     <React.Fragment>
-      <Col md={4}>
-        <div className="search-box me-xxl-2 my-3 my-xxl-0 d-inline-block">
-          <div className="position-relative">
-            <label htmlFor="search-bar-0" className="search-label">
-              <span id="search-bar-0-label" className="sr-only">
-                Search this table
-              </span>
-              <input
-                onChange={e => {
-                  setValue(e.target.value);
-                  onChange(e.target.value);
-                }}
-                id="search-bar-0"
-                type="text"
-                className="form-control"
-                placeholder={`${count} records...`}
-                value={value || ""}
-              />
-            </label>
-            <i className="bx bx-search-alt search-icon"></i>
-          </div>
-        </div>
-
-      </Col>
+              <Row className="mb-2">
+                <Col sm={12}>
+                  <Row>
+                    <Col sm={10}>
+                    <input
+                      onChange={e => {
+                        setValue(e.target.value);
+                        onChange(e.target.value);
+                      }}
+                      id="search-bar-0"
+                      type="text"
+                      className="form-control"
+                      placeholder={placeholder.length > 1 ? placeholder : `${count} records...`}
+                      value={value || ""}
+                    />      
+                    </Col>
+                    <Col className="my-sm-0 my-2">
+                      <Button className="btn btn-dark btn-outline w-100 h-100">
+                        Search
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
       {isJobListGlobalFilter && (
         <JobListGlobalFilter />
       )}
@@ -74,8 +75,9 @@ const TableContainer = ({
   customPageSize,
   className,
   customPageSizeOptions,
-  headerType
-
+  headerType,
+  placeholder,
+  dropdown
 }) => {
   const {
     getTableProps,
@@ -135,27 +137,32 @@ const TableContainer = ({
      
    <></>
      : 
-    
+   
       <Row className="mb-2">
-      <Col md={customPageSizeOptions ? 2 : 1}>
-        <select
-          className="form-select"
-          value={pageSize}
-          onChange={onChangeInSelect}
-        >
-          {[10, 20, 30, 40, 50].map(pageSize => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
-      </Col>
+         {
+          dropdown && 
+            <Col md={customPageSizeOptions ? 2 : 1}>
+            <select
+              className="form-select"
+              value={pageSize}
+              onChange={onChangeInSelect}
+            >
+              {[10, 20, 30, 40, 50].map(pageSize => (
+                <option key={pageSize} value={pageSize}>
+                  Show {pageSize}
+                </option>
+              ))}
+            </select>
+          </Col>
+        }
+    
       {isGlobalFilter && (
         <GlobalFilter
           preGlobalFilteredRows={preGlobalFilteredRows}
           globalFilter={state.globalFilter}
           setGlobalFilter={setGlobalFilter}
           isJobListGlobalFilter={isJobListGlobalFilter}
+          placeholder={placeholder}
         />
       )}
       {isAddOptions &&  (
