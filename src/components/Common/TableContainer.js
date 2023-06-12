@@ -21,6 +21,7 @@ function GlobalFilter({
   isJobListGlobalFilter,
   placeholder
 }) {
+ 
   const count = preGlobalFilteredRows.length;
   const [value, setValue] = React.useState(globalFilter);
   const onChange = useAsyncDebounce(value => {
@@ -41,7 +42,7 @@ function GlobalFilter({
                       id="search-bar-0"
                       type="text"
                       className="form-control"
-                      placeholder={placeholder.length > 1 ? placeholder : `${count} records...`}
+                      placeholder={placeholder && placeholder.length > 1 ? placeholder : `${count} records...`}
                       value={value || ""}
                     />      
                     </Col>
@@ -119,6 +120,8 @@ const TableContainer = ({
     usePagination
   );
 
+
+
   const generateSortingIndicator = column => {
     return column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : "";
   };
@@ -137,7 +140,6 @@ const TableContainer = ({
      
    <></>
      : 
-   
       <Row className="mb-2">
          {
           dropdown && 

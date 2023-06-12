@@ -21,7 +21,7 @@ import ReviewDetail from "pages/UserManagement/Review/Detail"
 
 // Menu Management
 import MenuManagement from "pages/MenuManagement"
-import Home from "pages/Home/Home"
+
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 
@@ -30,8 +30,6 @@ const authProtectedRoutes = [
   // table 
   { path: "/orderTable", component: <OrderTable/> },
    
-  // home 
-  {path: "/home", component: <Home/> },
   //User Management
   { path: "/user-management/search", component: <UserSearch/> },
   { path: "/user-management/seller-reg", component: <SellerRegistration/> },

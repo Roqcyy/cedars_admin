@@ -147,18 +147,10 @@ const SidebarContent = props => {
         <ul className="metismenu list-unstyled" id="side-menu">
           <li className="menu-title">{props.t("Menu")} </li>
           <li>
-            <Link to="/#" className="has-arrow">
+            <Link to="/dashboard" >
               <i className="bx bx-home-circle"></i>
-              <span>Home</span>
+              <span>Dash Board</span>
             </Link>
-            <ul className="sub-menu">
-              <li>
-                <Link to="/orderTable">Table</Link>
-              </li>
-              <li>
-                <Link to="/home">Home</Link>
-              </li>
-            </ul>
           </li>
           <li>
             <Link to="/#" className="has-arrow">
@@ -168,7 +160,7 @@ const SidebarContent = props => {
             <ul className="sub-menu">
               <li><Link to="/user-management/search">User Search</Link></li>
               <li><Link to="/user-management/seller-reg">Seller Registration</Link></li>
-              <li><Link to="/user-management/qna">QNA </Link></li>
+              <li><Link to="/user-management/qna">Q&A </Link></li>
               <li><Link to="/user-management/review">Review</Link></li>
             </ul>
           </li>
@@ -177,21 +169,14 @@ const SidebarContent = props => {
               <i className="bx bx-menu"></i>
               <span>Menu Management</span>
             </Link>
-            <ul className="sub-menu">
-              <li><Link to="/menu-management">Menu Settings 1</Link></li>
-              <li><Link to="#">Menu Settings 2</Link></li>
-              <li><Link to="#">Menu Settings 3</Link></li>
-              <li><Link to="#">Menu Settings 4</Link></li>
-            </ul>
           </li>
           <li>
             <Link to="/#" className="has-arrow">
-              <i className="bx bxs-detail"></i>
+              <i className="bx bx-receipt"></i>
               <span>Banner Management</span>
             </Link>
             <ul className="sub-menu">
               <li><Link to="#">Main Top Banner</Link></li>
-              
               <li><Link to="#">Middle Banner</Link></li>
             </ul>
           </li>
@@ -200,9 +185,6 @@ const SidebarContent = props => {
               <i className="bx bx-receipt"></i>
               <span>Category Management</span>
             </Link>
-            <ul className="sub-menu">
-            <li><Link to="#">Category</Link></li>
-            </ul>
           </li>
           <li>
             <Link to="/#" className="has-arrow">
@@ -210,7 +192,8 @@ const SidebarContent = props => {
               <span>Product Management</span>
             </Link>
             <ul className="sub-menu">
-              <li><Link to="#">Product</Link></li>
+              <li><Link to="#">List</Link></li>
+              <li><Link to="#">Registration Request</Link></li>
             </ul>
           </li>
           <li>
@@ -220,25 +203,48 @@ const SidebarContent = props => {
             </Link>
             <ul className="sub-menu">
               <li><Link to="#">Payment completed</Link></li>
-              
-              <li><Link to="#">Order cancellation</Link></li>
-              
               <li><Link to="#">Shipping in progress</Link></li>
-              
               <li><Link to="#">Delivery completed</Link></li>
-              
               <li><Link to="#">Purchase confirmation</Link></li>
-              
               <li><Link to="#">Refund request</Link></li>
-              
               <li><Link to="#">Refund completed</Link></li>
-              
               <li><Link to="#">Exchange request</Link></li>
-              
               <li><Link to="#">Exchange in progress</Link></li>
-              
               <li><Link to="#">Exchange completed</Link></li>
+              <li><Link to="#">Exchange confirmed</Link></li>
+              <li><Link to="#">Order cancellation </Link></li>
+              <li><Link to="#">Refund denied </Link></li>
+              <li><Link to="#">Exchange denied</Link></li>
             </ul>
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bxl-product-hunt"></i>
+              <span>Settings</span>
+            </Link>
+            <ul className="sub-menu">
+              <li><Link to="#">Footer</Link></li>
+              <li><Link to="#">Terms of Use</Link></li>
+              <li><Link to="#">Privacy Policy</Link></li>
+              <li><Link to="#">Platform Fee</Link></li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bxl-product-hunt"></i>
+              <span>Administrator</span>
+            </Link>
+            <ul className="sub-menu">
+              <li><Link to="#">List</Link></li>
+              <li><Link to="#">Log</Link></li>
+              <li><Link to="#">Permission</Link></li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/#" className="has-arrow">
+              <i className="bx bxl-product-hunt"></i>
+              <span>My Info</span>
+            </Link>
           </li>
         </ul>
       </div>

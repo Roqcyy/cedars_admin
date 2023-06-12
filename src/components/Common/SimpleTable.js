@@ -19,14 +19,15 @@ const SimpleTable = ({
   return (
     <>
       <Table bordered hover {...getTableProps()}>
-            <thead className="table-light table-nowrap">
+            <thead className="table-light table-nowrap" >
              {headerGroups.map(headerGroup => (
                 <tr  key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column, index) => (
                     <th 
                       style={{
                        background:  !column?.parent  ? '#7e97ad  ' : '#d8dde3',
-                       color: !column?.parent  ? 'white  ' : 'black'
+                       color: !column?.parent  ? 'white  ' : 'black',
+                       border: '1px solid white'
                       }}
                      key={column.id}  {...column.getHeaderProps()}>{column.render('Header')}</th>
                     ))}

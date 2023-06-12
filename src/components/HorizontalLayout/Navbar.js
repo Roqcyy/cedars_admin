@@ -124,7 +124,7 @@ const Navbar = props => {
                 <div
                   className={classname("dropdown-menu", { show: dashboard })}
                 >
-                  <Link to="/dashboard" className="dropdown-item">
+                  <Link to="/#" className="dropdown-item">
                     {props.t("Default")}
                   </Link>
                   <Link to="#" className="dropdown-item">

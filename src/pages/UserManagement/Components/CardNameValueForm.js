@@ -11,7 +11,7 @@ function CardNameValueForm(props) {
             <input
               className="form-control border-start-0 border-top-0 border-end-0 border-radius-0"
               type={props.type}
-              value={props.value}
+              defaultValue={props.value}
             />
           </Col>
         </Row>

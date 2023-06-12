@@ -21,7 +21,6 @@ const OrderId = (cell) => {
 };
 
 const BillingName = (cell) => {
-    console.log('billingName ---->>>>', cell.value)
     return cell.value ? cell.value : '';
 };
 
