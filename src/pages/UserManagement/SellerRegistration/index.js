@@ -52,7 +52,7 @@ function UserSearch() {
   const [modal, setModal] = useState(false)
   const [modal1, setModal1] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
-
+  const menuData = ["All", "Today", "This month", "This Year"]
   const [orderList, setOrderList] = useState([])
   const [order, setOrder] = useState(null)
 
@@ -176,20 +176,7 @@ function UserSearch() {
   }
   const columns = useMemo(
     () => [
-      {
-        Header: "No.",
-        accessor: "orderId",
-        width: "150px",
-        style: {
-          textAlign: "center",
-          width: "10%",
-          background: "#0000",
-        },
-        disableFilters: true,
-        Cell: cellProps => {
-          return <OrderId {...cellProps} />
-        },
-      },
+     
       {
         Header: "Request Date",
         accessor: "orderdate",
@@ -199,7 +186,7 @@ function UserSearch() {
         },
       },
       {
-        Header: "Requester Email",
+        Header: "User Email",
         accessor: "billingName",
         disableFilters: true,
         Cell: cellProps => {
@@ -208,7 +195,7 @@ function UserSearch() {
       },
      
       {
-        Header: "Company Email",
+        Header: "User Name",
         accessor: "paymentStatus",
         disableFilters: true,
         Cell: cellProps => {
@@ -216,7 +203,7 @@ function UserSearch() {
         },
       },
       {
-        Header: "Bussiness Name",
+        Header: "Company Email",
         accessor: "paymentMethod",
         disableFilters: true,
         Cell: cellProps => {
@@ -224,7 +211,15 @@ function UserSearch() {
         },
       },
       {
-        Header: "Action",
+        Header: "Company Name",
+        accessor: "s",
+        disableFilters: true,
+        Cell: cellProps => {
+          return <PaymentMethod {...cellProps} />
+        },
+      },
+      {
+        Header: "Approval status",
         accessor: "action",
         disableFilters: true,
         Cell: cellProps => {
@@ -239,9 +234,6 @@ function UserSearch() {
                 }}
               >
                 <i className="mdi mdi-pencil font-size-18" id="edittooltip" />
-                <UncontrolledTooltip placement="top" target="edittooltip">
-                  Edit
-                </UncontrolledTooltip>
               </Link>
             </div>
           )
@@ -269,6 +261,40 @@ function UserSearch() {
               <Col xs="12">
                 <Card>
                   <CardBody>
+                  <Row className="mb-2 d-flex align-items-center mt-4  py-2">
+                      <Col md={3} xl={2}>
+                        <input
+                          className="form-control"
+                          type="date"
+                          id="example-date-input"
+                        />
+                      </Col>
+                      {"~"}
+                      <Col md={3} xl={2}>
+                        <input
+                          className="form-control"
+                          type="date"
+                          id="example-date-input"
+                        />
+                      </Col>
+                      <Col className="d-flex alig-items-center" md={6} xl={6}>
+                        {menuData.map((menu, index) => {
+                          return (
+                            <Button
+                              key={index}
+                              type="button"
+                              color="light"
+                              className="btn me-2"
+                              style={{
+                                width: "100px",
+                              }}
+                            >
+                              {menu}
+                            </Button>
+                          )
+                        })}
+                      </Col>
+                    </Row>
                     <Row className="mb-2">
                       <Col md={12}>
                         <Row>
@@ -289,25 +315,13 @@ function UserSearch() {
                       </Col>
                     </Row>
                     <Row className="mb-2">
-                      <Col md={6}>
-                        <Row>
-                          <Col md ={6}>
-                            <input
-                              className="form-control"
-                              type="date"
-                              id="example-date-input"
-                            />
+                          <Col md={6} xl={3} lg={3}>
+                            <select className="form-control">
+                              <option>All</option>
+                              <option>Large select</option>
+                              <option>Small select</option>
+                            </select>
                           </Col>
-                          <Col md ={6}>
-                          <input
-                              className="form-control"
-                              type="date"
-                              id="example-date-input"
-                            />
-                          </Col>
-                        </Row>
-                      </Col>
-                      
                     </Row>
                     <TableContainer
                       headerType={"userSearch"}

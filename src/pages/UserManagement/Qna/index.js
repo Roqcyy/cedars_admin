@@ -52,13 +52,12 @@ function Qna() {
   const [modal, setModal] = useState(false)
   const [modal1, setModal1] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
-
+  const menuData = ["All", "Today", "This month", "This Year"]
   const [orderList, setOrderList] = useState([])
   const [order, setOrder] = useState(null)
 
   // validation
 
- 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
@@ -159,7 +158,7 @@ function Qna() {
   }
 
   //delete order
-  
+
   const [isBlockModal, setIsBlockModal] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
 
@@ -177,46 +176,32 @@ function Qna() {
   const columns = useMemo(
     () => [
       {
-        Header: "No.",
-        accessor: "orderId",
-        width: "150px",
-        style: {
-          textAlign: "center",
-          width: "10%",
-          background: "#0000",
-        },
-        disableFilters: true,
-        Cell: cellProps => {
-          return <OrderId {...cellProps} />
-        },
-      },
-      {
-        Header: "Request Date",
+        Header: "Registration  Date",
         accessor: "orderdate",
         disableFilters: true,
         Cell: cellProps => {
-            return <Date {...cellProps} />
+          return <Date {...cellProps} />
         },
       },
       {
-        Header: "Requester Email",
+        Header: "Product Name",
         accessor: "billingName",
         disableFilters: true,
         Cell: cellProps => {
           return <BillingName {...cellProps} />
         },
       },
-     
+
       {
-        Header: "Company Email",
+        Header: "User Email",
         accessor: "paymentStatus",
         disableFilters: true,
         Cell: cellProps => {
-            return <PaymentStatus {...cellProps} />
+          return <PaymentStatus {...cellProps} />
         },
       },
       {
-        Header: "Bussiness Name",
+        Header: "Contents",
         accessor: "paymentMethod",
         disableFilters: true,
         Cell: cellProps => {
@@ -224,7 +209,7 @@ function Qna() {
         },
       },
       {
-        Header: "Contents",
+        Header: "Answer Status",
         accessor: "total",
         disableFilters: true,
         Cell: cellProps => {
@@ -247,9 +232,6 @@ function Qna() {
                 }}
               >
                 <i className="mdi mdi-pencil font-size-18" id="edittooltip" />
-                <UncontrolledTooltip placement="top" target="edittooltip">
-                  Edit
-                </UncontrolledTooltip>
               </Link>
             </div>
           )
@@ -271,12 +253,51 @@ function Qna() {
         <div className="container-fluid">
           <Breadcrumbs title="User Management" breadcrumbItem={"Q&A"} />
           {isUserEdit ? (
-            <UserEditCard setIsBlockModal={setIsBlockModal} isBlockModal={isBlockModal} setIsUserEdit={setIsUserEdit} type={"seller"} />
+            <UserEditCard
+              setIsBlockModal={setIsBlockModal}
+              isBlockModal={isBlockModal}
+              setIsUserEdit={setIsUserEdit}
+              type={"seller"}
+            />
           ) : (
             <Row>
               <Col xs="12">
                 <Card>
                   <CardBody>
+                    <Row className="mb-2 d-flex align-items-center mt-4  py-2">
+                      <Col md={3} xl={2}>
+                        <input
+                          className="form-control"
+                          type="date"
+                          id="example-date-input"
+                        />
+                      </Col>
+                      {"~"}
+                      <Col md={3} xl={2}>
+                        <input
+                          className="form-control"
+                          type="date"
+                          id="example-date-input"
+                        />
+                      </Col>
+                      <Col className="d-flex alig-items-center" md={6} xl={6}>
+                        {menuData.map((menu, index) => {
+                          return (
+                            <Button
+                              key={index}
+                              type="button"
+                              color="light"
+                              className="btn me-2"
+                              style={{
+                                width: "100px",
+                              }}
+                            >
+                              {menu}
+                            </Button>
+                          )
+                        })}
+                      </Col>
+                    </Row>
                     <Row className="mb-2">
                       <Col md={12}>
                         <Row>
@@ -297,48 +318,25 @@ function Qna() {
                       </Col>
                     </Row>
                     <Row className="mb-2">
-                      <Col md={6}>
-                        <Row>
-                          <Col md ={6}>
-                            <input
-                              className="form-control"
-                              type="date"
-                              id="example-date-input"
-                            />
-                          </Col>
-                          <Col md ={6}>
-                          <input
-                              className="form-control"
-                              type="date"
-                              id="example-date-input"
-                            />
-                          </Col>
-                        </Row>
+                      <Col md={6} xl={3} lg={3}>
+                        <select className="form-control">
+                          <option>All</option>
+                          <option>Large select</option>
+                          <option>Small select</option>
+                        </select>
                       </Col>
-                      <Col md={6} >
-                        <Row>
-                          <Col md={6}>
-                          </Col>
-                          <Col md={6}>
-                          <select className="form-control">
-                              <option>All</option>
-                              <option>Large select</option>
-                              <option>Small select</option>
-                          </select>
-                          </Col>
-                        </Row>
-                       </Col>
-                      
                     </Row>
-                    <TableContainer
-                      headerType={"userSearch"}
-                      columns={columns}
-                      data={orders}
-                      isGlobalFilter={true}
-                      isAddOptions={true}
-                      handleOrderClicks={handleOrderClicks}
-                      customPageSize={10}
-                    />
+                    <Row className="mt-4">
+                      <TableContainer
+                        headerType={"userSearch"}
+                        columns={columns}
+                        data={orders}
+                        isGlobalFilter={true}
+                        isAddOptions={true}
+                        handleOrderClicks={handleOrderClicks}
+                        customPageSize={10}
+                      />
+                    </Row>
                   </CardBody>
                 </Card>
               </Col>
@@ -346,26 +344,34 @@ function Qna() {
           )}
           <Modal isOpen={isBlockModal} centered>
             <ModalBody className="p-5">
-                <Row>
-                  <Col className="col-12">
-                    <h4 className="text-center">    Woud you like to <br></br> approve this request?</h4>
-                  </Col>
-                </Row>
-              
+              <Row>
+                <Col className="col-12">
+                  <h4 className="text-center">
+                    {" "}
+                    Woud you like to <br></br> approve this request?
+                  </h4>
+                </Col>
+              </Row>
             </ModalBody>
             <ModalFooter>
-                <Row className="w-100">
-                    <Col xs={12}>
-                        <div className ="btn-group w-100">
-                            <button className="btn btn-dark" onClick={()=> setIsBlockModal(!isBlockModal)}>
-                                Cancel
-                            </button>
-                            <button className="btn btn-danger" onClick={()=> setIsBlockModal(!isBlockModal)}>
-                                Approve
-                            </button>
-                        </div>
-                    </Col>
-                </Row>
+              <Row className="w-100">
+                <Col xs={12}>
+                  <div className="btn-group w-100">
+                    <button
+                      className="btn btn-dark"
+                      onClick={() => setIsBlockModal(!isBlockModal)}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => setIsBlockModal(!isBlockModal)}
+                    >
+                      Approve
+                    </button>
+                  </div>
+                </Col>
+              </Row>
             </ModalFooter>
           </Modal>
         </div>
@@ -377,4 +383,4 @@ Qna.propTypes = {
   preGlobalFilteredRows: PropTypes.any,
 }
 
-export default Qna;
+export default Qna

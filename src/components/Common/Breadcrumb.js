@@ -5,7 +5,7 @@ import { Row, Col, BreadcrumbItem } from "reactstrap"
 
 const Breadcrumb = props => {
   return (
-    <Row>
+    <Row >
       <Col className="col-12">
          <div className="page-title-box d-sm-flex align-items-center justify-content-between">
           {props?.backBtn ? 

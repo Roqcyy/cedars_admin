@@ -177,10 +177,15 @@ function UserEditCard(props) {
                   </Row>
                 </Col>
               </Row>
+              <CardNameValueForm
+                title={"Approval status"}
+                type="text"
+                value={"Waiting"}
+              />
             </div>
           </Row>
         )}
-        {props.type == "seller" ? (
+        {props.type !== "seller" ? (
           <Row>
             <Col xs={6}>
               <button
